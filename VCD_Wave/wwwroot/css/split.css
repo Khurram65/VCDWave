@@ -1,0 +1,64 @@
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  /*padding: 10px;
+  background-color: #cccccc;
+  margin: 0px;*/
+}
+#content {
+  height: 100vh;
+  overflow: hidden;
+}
+#left,
+#right {
+  box-sizing: border-box;
+}
+#rtop,
+#lmiddle,
+#mmiddle,
+#rbot {
+  display: flex;
+  background-color:white;
+  flex-direction: column;
+}
+
+#wordOneText,
+#wordThreeText,
+#wordFourText,
+#wordTwoText{
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-color: white;
+  height: 100%;
+  margin: 0px;
+  padding: 8px;
+}
+
+#wordThreeText,
+#wordTwoText {
+  overflow: auto;
+}
+
+.hsplit,
+.vsplit {
+  box-sizing: border-box;
+}
+.gutter {
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.gutter.gutter-vertical {
+  cursor: row-resize;
+}
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+}
+.hsplit,
+.gutter.gutter-horizontal {
+  height: 100%;
+  float: left;
+}

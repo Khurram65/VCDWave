@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewData["Title"] = "Grid";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/split.css" rel="stylesheet" />
+
+<section id="content">
+
+    <div class="hsplit" id="left">
+        <div class="vsplit" id="rtop">
+            <pre id="wordOneText">Word 1</pre>
+        </div>
+        <div class="vsplit" id="rbot">
+            <pre id="wordTwoText">Word 2</pre>
+        </div>
+    </div>
+    <div class="hsplit" id="right">
+        <div class="hsplit" id="lmiddle">
+            <div id="wordFourText">Word 3</div>
+        </div>
+        <div class="hsplit" id="mmiddle">
+            <div id="wordFourText">Word 4</div>
+        </div>
+
+    </div>
+
+
+    @*<div class="hsplit" id="left">
+            <div class="vsplit" id="rtop">
+                <pre id="wordTwoText">Word 3</pre>
+            </div>
+            <div class="vsplit" id="rbot">
+                <pre id="wordThreeText">Word 4</pre>
+            </div>
+        </div>
+        <div class="hsplit" id="right">
+            <div class="hsplit" id="lmiddle">
+                <div id="wordFourText">Word 1</div>
+            </div>
+
+            <div class="hsplit" id="mmiddle">
+                <div id="wordFourText">Word 2</div>
+            </div>
+        </div>
+        Split(['#left', '#right'], {
+        sizes: [50, 50],
+        gutterSize: 8,
+        minSize: 23,
+        direction: 'horizontal'
+        });
+
+        Split(['#lmiddle', '#mmiddle'], {
+        sizes: [50, 50],
+        minSize: 5,
+        gutterSize: 8,
+        direction: 'horizontal'
+        });
+
+        Split(['#rtop', '#rbot'], {
+        sizes: [50, 50],
+        direction: 'vertical',
+        gutterSize: 8
+        });*@
+
+
+
+</section>
+
+<script src="~/js/split.min.js"></script>
+<script src="~/js/script.js"></script>
+@*<script type="text/javascript">
+        $(function () {
+            $('#grid4').gridSplit({
+                'useContent': true
+            });
+
+        });
+        Split(['#b', '#c'], {
+            gutterSize: 8,
+            sizes: [70, 30],
+            cursor: 'pointer',
+            direction: 'vertical',
+        });
+        Split(['#d', '#e', '#f'], {
+            sizes: [30, 35, 35],
+            gutterSize: 8,
+            cursor: 'row-resize',
+        });
+        Split(['#g', '#h'], {
+            sizes: [30, 70],
+            gutterSize: 8,
+            cursor: 'row-resize',
+        });
+        $("#b").css("flex-basis", "calc(25% - 1%)")
+        $("#c").css("flex-basis", "calc(39% - 1%)")
+    </script>*@
