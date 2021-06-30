@@ -1,0 +1,121 @@
+﻿@model VCD_Wave.Models.Wave
+@{
+    ViewData["Title"] = "Home Page";
+    var lst = Model.module.lstmodule;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        ul, #myUL {
+            list-style-type: none;
+        }
+
+        #myUL {
+            margin: 0;
+            padding: 0;
+        }
+
+        .caret {
+            cursor: pointer;
+            -webkit-user-select: none; /* Safari 3.1+ */
+            -moz-user-select: none; /* Firefox 2+ */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none;
+        }
+
+            .caret::before {
+                content: "\25B6";
+                color: black;
+                display: inline-block;
+                margin-right: 6px;
+            }
+
+        .caret-down::before {
+            -ms-transform: rotate(90deg); /* IE 9 */
+            -webkit-transform: rotate(90deg); /* Safari */
+            ' transform: rotate(90deg);
+        }
+
+        .nested {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    @if (lst != null && lst.Count != 0)
+    {
+        <ul id="myUL">
+            @{
+                void GetTreeView(List<VCD_Wave.Models.mod_vcd_Modules> siteMenu, long parentID)
+                {
+                    foreach (var item in siteMenu.Where(a => a.scopeparentid.Equals(parentID)).OrderBy(x=>x.scopeparentid))
+                    {
+                        var submenu = siteMenu.Where(a => a.scopeparentid.Equals(item.scopecounter)).Count();
+                        <li>
+                            <span class="@(submenu>0?"caret":"")">@item.scopename</span>
+                            @if (submenu > 0)
+                            {
+                                <ul class="nested">
+                                    @{GetTreeView(siteMenu,item.scopecounter);}
+                                </ul>
+                            }
+                        </li>
+                    }
+                }
+                GetTreeView(lst,lst[0].scopeparentid);
+            }
+        </ul>
+    }
+    @*<li>
+            <span class="caret">Beverages</span>
+            <ul class="nested">
+                <li>Water</li>
+                <li>Coffee</li>
+                <li>
+                    <span class="caret">Tea</span>
+                    <ul class="nested">
+                        <li>Black Tea</li>
+                        <li>White Tea</li>
+                        <li>
+                            <span class="caret">Green Tea</span>
+                            <ul class="nested">
+                                <li>Sencha</li>
+                                <li>Gyokuro</li>
+                                <li>Matcha</li>
+                                <li>Pi Lo Chun</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>*@
+
+
+</body>
+</html>
+<script>
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+            this.parentElement.querySelector(".nested").classList.toggle("active");
+            this.classList.toggle("caret-down");
+        });
+    }
+</script>

@@ -1,0 +1,10 @@
+﻿[*.cs]
+
+# S1075: URIs should not be hardcoded
+dotnet_diagnostic.S1075.severity = none
+
+# IDE0059: Unnecessary assignment of a value
+csharp_style_unused_value_assignment_preference = discard_variable:none
+
+# S1854: Unused assignments should be removed
+dotnet_diagnostic.S1854.severity = none
