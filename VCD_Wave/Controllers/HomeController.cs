@@ -34,7 +34,7 @@ namespace VCD_Wave.Controllers
                 mod_vcd_Main modulelst = new mod_vcd_Main();
                 mod_vcd_TimeScale_Main timelst = new mod_vcd_TimeScale_Main();
 
-                string data = Get_URLData_Str("http://192.168.70.5/WebApplication1/VcdReader/GetModuleData?fileid=18");
+                string data = Get_URLData_Str("http://192.168.70.5/WebApplication1/VcdReader/GetModuleData?fileid=17");
                 DataContractJsonSerializer objs = new DataContractJsonSerializer(typeof(mod_vcd_Main));
                 modulelst = (mod_vcd_Main)objs.ReadObject(new MemoryStream(Encoding.ASCII.GetBytes(data)));
                 if (modulelst != null && modulelst.lstmodule != null && modulelst.lstmodule.Count != 0)
