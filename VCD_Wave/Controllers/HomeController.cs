@@ -121,5 +121,12 @@ namespace VCD_Wave.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //Sample Grid Page
+        public IActionResult Grid()
+        {
+            return View();
+        }
+        //Sample Grid Page
     }
 }
